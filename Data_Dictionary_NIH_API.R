@@ -26,7 +26,7 @@ Entities_Clean <- Entities2$value
 Entities_Clean <- as.data.frame(Entities_Clean)
 
 # Running API Script:
-fetch_data <- function(query_string = 'diabetic foot', UTS_API_KEY = '32de27a7-1e5b-4519-a910-1b36d99c280f', version = 'current') {
+fetch_data <- function(query_string = 'diabetic foot', UTS_API_KEY = '#your_unique_key', version = 'current') {
   response <- POST('https://utslogin.nlm.nih.gov/cas/v1/api-key', encode='form', body=list(apikey = UTS_API_KEY))
   
   # print out the status_code and content_type
@@ -47,7 +47,7 @@ fetch_data <- function(query_string = 'diabetic foot', UTS_API_KEY = '32de27a7-1
 }
 
 # if you have a list of query strings, then
-df_list <- lapply(Entities_Clean$Entities_Clean, fetch_data, UTS_API_KEY = "32de27a7-1e5b-4519-a910-1b36d99c280f")
+df_list <- lapply(Entities_Clean$Entities_Clean, fetch_data, UTS_API_KEY = "#your_unique_key")
 df_list[2]
 str(df_list[2])
 
